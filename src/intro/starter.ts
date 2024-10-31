@@ -1,9 +1,10 @@
 import {
   BedrockClient,
   ListFoundationModelsCommand,
+  GetFoundationModelCommand,
 } from "@aws-sdk/client-bedrock";
 const client = new BedrockClient({
-  region: "eu-central-1",
+  region: "us-east-1",
 });
 
 async function listFoundationModels() {
@@ -11,4 +12,15 @@ async function listFoundationModels() {
   console.log(response);
 }
 
-listFoundationModels();
+async function getModelInfo(modelName: string) {
+  const response = await client.send(
+    new GetFoundationModelCommand({
+      modelIdentifier: modelName,
+    })
+  );
+
+  console.log(response);
+}
+
+//listFoundationModels();
+getModelInfo("anthropic.claude-3-sonnet-20240229-v1:0:28k");
