@@ -3,7 +3,7 @@ import {
   InvokeModelCommand,
 } from "@aws-sdk/client-bedrock-runtime";
 
-import fs, { writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 const MODEL_ID = "stability.stable-diffusion-xl-v1";
 const APPLICATION_JSON = "application/json";
 const FILE = "tiger.png";

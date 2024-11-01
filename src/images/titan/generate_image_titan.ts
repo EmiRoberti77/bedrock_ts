@@ -2,7 +2,7 @@ import {
   BedrockRuntimeClient,
   InvokeModelCommand,
 } from "@aws-sdk/client-bedrock-runtime";
-import fs, { writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 
 const TITAN_MODEL = "amazon.titan-image-generator-v1";
 const APPLICATION_JSON = "application/json";
