@@ -6,7 +6,7 @@ import fs, { writeFileSync } from "fs";
 
 const TITAN_MODEL = "amazon.titan-image-generator-v1";
 const APPLICATION_JSON = "application/json";
-const FILE = "dog_sleeping.png";
+const FILE = "dog.png";
 const PROMPT = "a dog sleeping on a sofa";
 
 const client = new BedrockRuntimeClient({ region: "us-east-1" });
