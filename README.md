@@ -26,6 +26,12 @@ Example Uses:
 
 To interact with Titan, you use AWS Bedrock’s API, where you send a request with the text or image prompt, and it returns the generated content. Titan is particularly useful if you’re looking to work with both text and images within a single framework.
 
+sample of generated titan image and using image masking to change color of the dog
+
+<img width="1157" alt="Screenshot 2024-11-01 at 12 04 06" src="https://github.com/user-attachments/assets/5d9de117-cec9-43b6-9b87-ad07553a39f1">
+
+full code here - https://github.com/EmiRoberti77/bedrock_ts/blob/main/src/images/titan/edit_titan_image.ts
+
 ### 2. Meta’s Llama (Text)
 
 Llama is a powerful text model developed by Meta (formerly Facebook). It focuses on understanding language and generating high-quality text based on the given input. Llama is available on AWS Bedrock, making it accessible for those who want to integrate it into applications without extensive setup.
