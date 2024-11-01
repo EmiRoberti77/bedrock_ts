@@ -26,9 +26,9 @@ Example Uses:
 
 To interact with Titan, you use AWS Bedrock’s API, where you send a request with the text or image prompt, and it returns the generated content. Titan is particularly useful if you’re looking to work with both text and images within a single framework.
 
-sample of generated titan image and using image masking to change color of the dog
+sample of generated titan image and using image masking to change color of the tiger
 
-<img width="1157" alt="Screenshot 2024-11-01 at 12 04 06" src="https://github.com/user-attachments/assets/5d9de117-cec9-43b6-9b87-ad07553a39f1">
+<img width="1204" alt="Screenshot 2024-11-01 at 12 13 53" src="https://github.com/user-attachments/assets/189b3d92-7d86-4c63-a956-7b96e86403a2">
 
 full code here - https://github.com/EmiRoberti77/bedrock_ts/blob/main/src/images/titan/edit_titan_image.ts
 
