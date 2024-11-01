@@ -60,28 +60,39 @@ To work with these models on AWS Bedrock, you’ll use the AWS SDK to send reque
 
 Here’s a very basic example in Python to generate text with the Llama model:
 
-```python
-import boto3
-import json
+```typescript
+import {
+  BedrockRuntimeClient,
+  InvokeModelCommand,
+} from "@aws-sdk/client-bedrock-runtime";
 
-# Initialize the Bedrock client
-client = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
+const client = new BedrockRuntimeClient({
+  region: "us-east-1",
+});
 
-# Define the model ID and input text
-model_id = "meta.llama-v2"
-input_text = "what does it take to be a great programmer?"
+async function invokeModel() {
+  const llamaConfig = {
+    prompt: "give me a dragon story",
+    max_gen_len: 512,
+    temperature: 0.5,
+    top_p: 0.9,
+  };
 
-# Send the request
-response = client.invoke_model(
-    modelId=model_id,
-    body=json.dumps({"text": input_text}),
-    accept="application/json",
-    contentType="application/json"
-)
+  const modelId = "meta.llama3-8b-instruct-v1:0";
+  const response = await client.send(
+    new InvokeModelCommand({
+      body: JSON.stringify(llamaConfig),
+      modelId,
+      contentType: "application/json",
+      accept: "application/json",
+    })
+  );
 
-# Process the response
-response_body = json.loads(response.get('body').read())
-print(response_body.get('results')[0].get('outputText'))
+  const responseBody = JSON.parse(new TextDecoder().decode(response.body));
+  console.log(responseBody.generation);
+}
+
+invokeModel();
 ```
 
 ### This example is a simple starting point. With a little tweaking, you can use similar code to generate images, create conversations, and more.
